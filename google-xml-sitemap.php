@@ -53,7 +53,7 @@ function google_sitemap() {
       continue;
     if ( ! empty( $post->post_title ) ) {
       $xml .= "\t<url>\n";
-      $xml .= "\t\t<loc>" . get_permalink( $post->ID ) . "</loc>\n";
+      $xml .= "\t\t<loc>" . htmlspecialchars(get_permalink( $post->ID ), ENT_QUOTES, 'UTF-8') . "</loc>\n";
       $xml .= "\t\t<lastmod>" . mysql2date( 'Y-m-d\TH:i:s+00:00', $post->post_modified_gmt, false ) . "</lastmod>\n";
       $xml .= "\t\t<changefreq>" . 'weekly' . "</changefreq>\n";
       $xml .= "\t\t<priority>" . '0.8' . "</priority>\n";
